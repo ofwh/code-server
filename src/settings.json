@@ -1,0 +1,210 @@
+{
+  "[css]": {
+    "cSpell.fixSpellingWithRenameProvider": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.suggest.insertMode": "replace",
+    "gitlens.codeLens.scopes": ["document"]
+  },
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "michelemelluso.code-beautifier"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.autoIndent": "keep",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "gitlens.codeLens.scopes": ["document"]
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  },
+  "auto-close-tag.SublimeText3Mode": true,
+  "auto-close-tag.fullMode": true,
+  "better-comments.highlightPlainText": true,
+  "cSpell.diagnosticLevel": "Hint",
+  "cSpell.showStatus": false,
+  "cSpell.spellCheckDelayMs": 250,
+  "cSpell.userWords": ["tencent", "lexin", "leco", "fql"],
+  "debug.console.fontFamily": "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace, default",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {},
+  "editor.detectIndentation": false,
+  "editor.find.autoFindInSelection": "multiline",
+  "editor.fontFamily": "JetBrainsMono Nerd Font, JetBrains Mono, Menlo, Monaco, Courier New, monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.fontWeight": "normal",
+  "editor.guides.bracketPairs": true,
+  "editor.guides.highlightActiveBracketPair": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.maxColumn": 120,
+  "editor.minimap.renderCharacters": false,
+  "editor.renderWhitespace": "all",
+  "editor.scrollBeyondLastLine": true,
+  "editor.selectionHighlight": true,
+  "editor.tabSize": 2,
+  "editor.unicodeHighlight.includeStrings": false,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.wordWrapColumn": 120,
+  "eslint.codeActionsOnSave.mode": "problems",
+  "eslint.quiet": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.openEditors.visible": 0,
+  "extensions.ignoreRecommendations": true,
+  "files.associations": {
+    "*.js": "javascript",
+    "*.ts": "javascript",
+    "*.vue": "vue"
+  },
+  "files.eol": "\n",
+  "git-graph.date.type": "Commit Date",
+  "git.autofetch": true,
+  "git.ignoreLegacyWarning": true,
+  "git.ignoreMissingGitWarning": true,
+  "gitlens.advanced.messages": {
+    "suppressGitVersionWarning": true
+  },
+  "gitlens.blame.avatars": false,
+  "gitlens.blame.dateFormat": "YYYY/MM/DD HH:mm:ss",
+  "gitlens.blame.format": "${date} - ${author|25}",
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.scopes": ["containers"],
+  "gitlens.currentLine.dateFormat": "YYYY/MM/DD hh:mm:ss",
+  "gitlens.currentLine.format": "${date, }${author}${' via 'pullRequest}${ • message|150?}",
+  "gitlens.currentLine.uncommittedChangesFormat": "${date, }${author}${' via 'pullRequest}${ • message|150?}",
+  "gitlens.defaultDateFormat": "YYYY/MM/DD HH:mm:ss",
+  "gitlens.defaultDateLocale": "zh-CN",
+  "gitlens.defaultDateShortFormat": "YY/MM/DD HH:mm:ss",
+  "gitlens.defaultTimeFormat": "HH:mm:ss",
+  "gitlens.hovers.avatars": false,
+  "gitlens.showWelcomeOnInstall": false,
+  "gitlens.showWhatsNewAfterUpgrades": false,
+  "gitlens.statusBar.enabled": false,
+  "gitlens.views.branches.avatars": false,
+  "gitlens.views.commits.avatars": false,
+  "gitlens.views.fileHistory.avatars": false,
+  "gitlens.views.formats.commits.description": "${author, }${committerDate}",
+  "gitlens.views.remotes.avatars": false,
+  "gitlens.views.repositories.avatars": false,
+  "javascript.suggest.jsdoc.generateReturns": false,
+  "javascript.suggest.names": false,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "js/ts.implicitProjectConfig.strictFunctionTypes": false,
+  "markdown.extension.syntax.plainTheme": true,
+  "merge-conflict.autoNavigateNextConflict.enabled": true,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "prettier.enableDebugLogs": true,
+  "prettier.printWidth": 120,
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "search.exclude": {
+    "**/package-lock.json": true
+  },
+  "security.workspace.trust.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "settingsSync.ignoredExtensions": [],
+  "settingsSync.ignoredSettings": [],
+  "sortJSON.contextMenu": {
+    "sortJSON": true,
+    "sortJSONAlphaNum": false,
+    "sortJSONAlphaNumReverse": false,
+    "sortJSONKeyLength": false,
+    "sortJSONKeyLengthReverse": false,
+    "sortJSONReverse": false,
+    "sortJSONType": false,
+    "sortJSONTypeReverse": false,
+    "sortJSONValues": false,
+    "sortJSONValuesReverse": true
+  },
+  "sortJSON.excludedFiles": ["package.json"],
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.automationProfile.windows": {},
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "underline",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "terminal.integrated.persistentSessionScrollback": 10000,
+  "terminal.integrated.profiles.windows": {
+    "Command Prompt": {
+      "args": [],
+      "icon": "terminal-cmd",
+      "path": ["${env:windir}\\Sysnative\\cmd.exe", "${env:windir}\\System32\\cmd.exe"]
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "PowerShell": {
+      "icon": "terminal-powershell",
+      "source": "PowerShell"
+    }
+  },
+  "terminal.integrated.rightClickBehavior": "default",
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.sendKeybindingsToShell": true,
+  "terminal.integrated.shellIntegration.history": 500,
+  "terminal.integrated.tabs.enabled": true,
+  "typescript.reportStyleChecksAsWarnings": false,
+  "typescript.validate.enable": false,
+  "update.mode": "manual",
+  "update.showReleaseNotes": false,
+  "vsicons.dontShowNewVersionMessage": true,
+  "window.openFoldersInNewWindow": "on",
+  "window.restoreWindows": "none",
+  "window.title": "${activeEditorLong}${separator}${rootName}",
+  "window.zoomLevel": 1,
+  "workbench.colorCustomizations": {
+    "editor.findMatchBackground": "#d52753dd",
+    "editor.findMatchBorder": "#d52753dd",
+    "editor.findMatchHighlightBackground": "#275fe4",
+    "editor.inactiveSelectionBackground": "#275fe4",
+    "editor.lineHighlightBackground": "#383a42",
+    "editor.selectionHighlightBackground": "#275fe4",
+    "editor.wordHighlightBackground": "#275fe4"
+  },
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.commandPalette.history": 25,
+  "workbench.editor.closeOnFileDelete": true,
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.editorAssociations": {},
+  "workbench.enableExperiments": false,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "workbench.startupEditor": "none"
+}
