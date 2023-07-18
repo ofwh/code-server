@@ -18,28 +18,28 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
-          event-type: Daily Build Latest
+          event-type: Build Latest
           client-payload: '{ "node": 18, "tag": "latest", "repo": "${{ github.repository }}" }'
 
       - name: Trigger build Node 14
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
-          event-type: Daily Build Tag (Node 14)
+          event-type: Build Node 14
           client-payload: '{ "node": 14, "tag": "node-v14", "repo": "${{ github.repository }}" }'
 
       - name: Trigger build Node 16
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
-          event-type: Daily Build Tag (Node 16)
+          event-type: Build Node 16
           client-payload: '{ "node": 16, "tag": "node-v16", "repo": "${{ github.repository }}" }'
 
       - name: Trigger build Node 18
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
-          event-type: Daily Build Tag (Node 18)
+          event-type: Build Node 18
           client-payload: '{ "node": 18, "tag": "node-v18", "repo": "${{ github.repository }}" }'
 
       - name: Delete workflow runs
