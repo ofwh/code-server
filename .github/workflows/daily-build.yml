@@ -1,4 +1,4 @@
-name: Update Checker
+name: Build Trigger
 
 on:
   workflow_dispatch:
