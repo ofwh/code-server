@@ -17,6 +17,10 @@ ENV SHELL=/bin/zsh
 
 # Install unzip + rclone (support for remote filesystem)
 RUN sudo apt-get update && sudo apt-get install curl wget net-tools neovim unzip -y
+
+# Install python2 for sass
+RUN sudo apt-get install python2.7 python-is-python2 -y
+
 # RUN curl https://rclone.org/install.sh | sudo bash
 # install NodeJS 14
 RUN curl -sL https://deb.nodesource.com/setup_${NODE_VER}.x | sudo bash
