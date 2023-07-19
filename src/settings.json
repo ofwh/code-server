@@ -62,7 +62,7 @@
   "editor.find.autoFindInSelection": "multiline",
   "editor.fontFamily": "JetBrainsMono Nerd Font, JetBrains Mono, Menlo, Monaco, Courier New, monospace",
   "editor.fontLigatures": true,
-  "editor.fontSize": 13,
+  "editor.fontSize": 14,
   "editor.fontWeight": "normal",
   "editor.guides.bracketPairs": true,
   "editor.guides.highlightActiveBracketPair": true,
