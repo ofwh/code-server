@@ -3,7 +3,8 @@ FROM codercom/code-server:latest
 
 USER coder
 
-ARG NODE_VER=16
+# Set default version
+ARG NODE_VER=18
 
 # Apply VS Code settings
 COPY src/settings.json .local/share/code-server/User/settings.json
@@ -22,9 +23,20 @@ RUN sudo apt-get update && sudo apt-get install curl wget net-tools neovim unzip
 RUN sudo apt-get install python2.7 python-is-python2 -y
 
 # RUN curl https://rclone.org/install.sh | sudo bash
-# install NodeJS 14
-RUN curl -sL https://deb.nodesource.com/setup_${NODE_VER}.x | sudo bash
-RUN sudo apt-get install -y nodejs
+
+# Install NodeJS
+# RUN curl -sL https://deb.nodesource.com/setup_${NODE_VER}.x | sudo bash
+# RUN sudo apt-get install -y nodejs
+
+# Install nvm
+# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | \
+    bash
+RUN /bin/zsh -c "source $HOME/.nvm/nvm.sh \
+    && nvm install 14 \
+    && nvm install 16 \
+    && nvm install 18 \
+    && nvm alias default ${NODE_VER}"
 
 # Fix permissions for code-server
 RUN sudo chown -R coder:coder /home/coder/.local
