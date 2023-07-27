@@ -1,26 +1,26 @@
 # Start from the code-server Debian base image
 FROM codercom/code-server:latest
 
-USER coder
+USER root
 
 # Set default version
 ARG NODE_VER=18
 
 # Apply VS Code settings
-COPY src/settings.json .local/share/code-server/User/settings.json
+COPY src/settings.json /root/.local/share/code-server/User/settings.json
 
 # Use bash shell
 # ENV SHELL=/bin/bash
 
 # Use zsh shell
-COPY src/dotfiles ./
+COPY src/dotfiles /root/
 ENV SHELL=/bin/zsh
 
 # Install unzip + rclone (support for remote filesystem)
-RUN sudo apt-get update && sudo apt-get install curl wget net-tools neovim unzip -y
+RUN apt-get update && apt-get install curl wget net-tools neovim unzip -y
 
 # Install python2 for sass
-RUN sudo apt-get install python2.7 python-is-python2 -y
+RUN apt-get install python2.7 python-is-python2 -y
 
 # RUN curl https://rclone.org/install.sh | sudo bash
 
@@ -39,7 +39,7 @@ RUN /bin/zsh -c "source $HOME/.nvm/nvm.sh \
     && nvm alias default ${NODE_VER}"
 
 # Fix permissions for code-server
-RUN sudo chown -R coder:coder /home/coder/.local
+# RUN chown -R root:root ~/.local
 
 # You can add custom software and dependencies for your environment below
 # -----------
@@ -82,6 +82,6 @@ RUN code-server --install-extension Vue.volar
 ENV PORT=8080
 
 # Use our custom entrypoint script first
-COPY src/entrypoint.sh /usr/bin/deploy-container-entrypoint.sh
-RUN sudo chmod +x /usr/bin/deploy-container-entrypoint.sh
-ENTRYPOINT ["/usr/bin/deploy-container-entrypoint.sh"]
+COPY src/entrypoint.sh /usr/bin/code-server-entrypoint.sh
+RUN chmod +x /usr/bin/code-server-entrypoint.sh
+ENTRYPOINT ["/usr/bin/code-server-entrypoint.sh"]

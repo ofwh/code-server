@@ -48,4 +48,8 @@ fi
 # /usr/bin/code-server --install-extension vscode-icons-team.vscode-icons
 # /usr/bin/code-server --install-extension Vue.volar
 
+# Set git safe directory
+/usr/bin/git config --global --add safe.directory "*"
+
+# Start server
 exec dumb-init /usr/bin/code-server "$@" --disable-telemetry
