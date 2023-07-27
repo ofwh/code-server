@@ -47,7 +47,7 @@ RUN /bin/zsh -c "source $HOME/.nvm/nvm.sh \
 # Install a VS Code extension:
 # Note: we use a different marketplace than VS Code. See https://github.com/cdr/code-server/blob/main/docs/FAQ.md#differences-compared-to-vs-code
 # RUN code-server --install-extension esbenp.prettier-vscode
-RUN code-server --install-extension esbenp.prettier-vscode
+
 RUN code-server --install-extension formulahendry.auto-close-tag
 RUN code-server --install-extension formulahendry.auto-rename-tag
 RUN code-server --install-extension mgmcdermott.vscode-language-babel
