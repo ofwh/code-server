@@ -20,7 +20,12 @@ if command -v git &> /dev/null; then
   autoload -Uz vcs_info
   precmd_vcs_info() { vcs_info }
   precmd_functions+=( precmd_vcs_info )
-  prompt_git() { [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ] && echo "$BLUE\ue0a0 ${vcs_info_msg_0_%% }$FINISH" }
+  prompt_node() {
+    if which node &> /dev/null; then
+      echo "$GREEN\uf898 $(node -v)"
+    fi
+  }
+  prompt_git() { [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ] && echo "$(prompt_node)  $BLUE\ue0a0 ${vcs_info_msg_0_%% }$FINISH" }
   setopt prompt_subst
   # RPROMPT=\$vcs_info_msg_0_
   RPROMPT='$(prompt_git)'
