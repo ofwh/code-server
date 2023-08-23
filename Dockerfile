@@ -19,17 +19,19 @@ ENV SHELL=/bin/zsh
 # Install unzip + rclone (support for remote filesystem)
 RUN apt-get update && apt-get install curl wget net-tools neovim unzip -y
 
+# Install nerd fonts
+RUN mkdir -p ./fonts
+COPY src/fonts ./fonts
+RUN mkdir -p /usr/share/fonts/truetype
+RUN install -m644 ./fonts/*.ttf /usr/share/fonts/truetype/
+RUN rm -rf ./fonts
+
 # Install python2 for sass
 RUN apt-get install python2.7 python-is-python2 -y
 
 # RUN curl https://rclone.org/install.sh | sudo bash
 
-# Install NodeJS
-# RUN curl -sL https://deb.nodesource.com/setup_${NODE_VER}.x | sudo bash
-# RUN sudo apt-get install -y nodejs
-
-# Install nvm
-# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+# Install nvm and NodeJS
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | \
     bash
 RUN /bin/zsh -c "source $HOME/.nvm/nvm.sh \

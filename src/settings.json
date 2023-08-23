@@ -3,17 +3,24 @@
     "cSpell.fixSpellingWithRenameProvider": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.suggest.insertMode": "replace",
-    "gitlens.codeLens.scopes": ["document"]
+    "gitlens.codeLens.scopes": [
+      "document"
+    ]
   },
   "[dart]": {
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.rulers": [80],
+    "editor.rulers": [
+      80
+    ],
     "editor.selectionHighlight": false,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": false
+  },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
@@ -25,7 +32,7 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[less]": {
     "editor.defaultFormatter": "michelemelluso.code-beautifier"
@@ -42,7 +49,9 @@
   "[vue]": {
     "editor.autoIndent": "keep",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "gitlens.codeLens.scopes": ["document"]
+    "gitlens.codeLens.scopes": [
+      "document"
+    ]
   },
   "[xml]": {
     "editor.defaultFormatter": "DotJoshJohnson.xml"
@@ -53,16 +62,22 @@
   "cSpell.diagnosticLevel": "Hint",
   "cSpell.showStatus": false,
   "cSpell.spellCheckDelayMs": 250,
-  "cSpell.userWords": ["tencent", "lexin", "leco", "fql"],
-  "debug.console.fontFamily": "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace, default",
+  "cSpell.userWords": [
+    "tencent",
+    "lexin",
+    "leco",
+    "fql"
+  ],
+  "debug.console.fontFamily": "JetBrainsMono Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace, default",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {},
+  "editor.codeLensFontFamily": "JetBrainsMono Nerd Font Mono, Menlo, Monaco, Courier New, monospace",
   "editor.detectIndentation": false,
   "editor.find.autoFindInSelection": "multiline",
-  "editor.fontFamily": "JetBrainsMono Nerd Font, JetBrains Mono, Menlo, Monaco, Courier New, monospace",
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono, Menlo, Monaco, Courier New, monospace",
   "editor.fontLigatures": true,
-  "editor.fontSize": 14,
+  "editor.fontSize": 13,
   "editor.fontWeight": "normal",
   "editor.guides.bracketPairs": true,
   "editor.guides.highlightActiveBracketPair": true,
@@ -99,7 +114,9 @@
   "gitlens.blame.dateFormat": "YYYY/MM/DD HH:mm:ss",
   "gitlens.blame.format": "${date} - ${author|25}",
   "gitlens.codeLens.authors.enabled": false,
-  "gitlens.codeLens.scopes": ["containers"],
+  "gitlens.codeLens.scopes": [
+    "containers"
+  ],
   "gitlens.currentLine.dateFormat": "YYYY/MM/DD hh:mm:ss",
   "gitlens.currentLine.format": "${date, }${author}${' via 'pullRequest}${ • message|150?}",
   "gitlens.currentLine.uncommittedChangesFormat": "${date, }${author}${' via 'pullRequest}${ • message|150?}",
@@ -150,21 +167,30 @@
     "sortJSONValues": false,
     "sortJSONValuesReverse": true
   },
-  "sortJSON.excludedFiles": ["package.json"],
+  "sortJSON.excludedFiles": [
+    "package.json"
+  ],
   "telemetry.telemetryLevel": "off",
+  "terminal.integrated.allowMnemonics": true,
   "terminal.integrated.automationProfile.windows": {},
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "underline",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.fontFamily": "Hack Nerd Font Mono, JetBrainsMono Nerd Font Mono, Menlo, Monaco, Courier New, monospace",
+  "terminal.integrated.fontWeight": "600",
+  "terminal.integrated.lineHeight": 1.2,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.persistentSessionScrollback": 10000,
   "terminal.integrated.profiles.windows": {
     "Command Prompt": {
       "args": [],
       "icon": "terminal-cmd",
-      "path": ["${env:windir}\\Sysnative\\cmd.exe", "${env:windir}\\System32\\cmd.exe"]
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ]
     },
     "Git Bash": {
       "source": "Git Bash"
@@ -183,6 +209,44 @@
   "typescript.validate.enable": false,
   "update.mode": "manual",
   "update.showReleaseNotes": false,
+  "vetur.completion.scaffoldSnippetSources": {
+    "user": "🗒️",
+    "vetur": "✌",
+    "workspace": "💼"
+  },
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      "wrap_attributes": "force-expand-multiline"
+    },
+    "prettier": {
+      "arrowParens": "always", // 箭头函数参数只有一个时是否需要有小括号，默认为always。可选<always|avoid>
+      "bracketSpacing": true, // 对象大括号直接是否有空格，默认为true。可选<true|false>
+      "endOfLine": "lf", // 结尾换行符，默认为lf。可选<lf|cr|crlf|auto>
+      "htmlWhitespaceSensitivity": "css", // html内容是否敏感，默认为css。可选<css|strict|ignore>
+      "insertPragma": false, // 在文件顶部插入@format的特殊注释，标明已经被Prettier格式化过，默认为false。可选<true|false>
+      "jsxBracketSameLine": false, // [已废弃] jsx文件中的 ">" 标签是否放到单独的一行，默认为false。可选<true|false>
+      "jsxSingleQuote": false, // jsx语法中使用单引号，默认为false。可选<true|false>
+      "printWidth": 120, // 每行最大宽度，超过将自动换行，默认为80。可选<number>
+      "proseWrap": "preserve", // 默认情况下，Prettier会因为使用了一些折行敏感型的渲染器（如GitHub comment 和 BitBucket）而按照markdown文本样式进行折行，默认为preserve。可选<always|never|preserve>
+      "quoteProps": "as-needed", // 对象的属性名是否使用引号，默认为as-needed。可选<as-needed|consistent|preserve>
+      "requirePragma": false, // 严格按照文件顶部的一些特殊的注释格式化代码，默认为false。可选<true|false>
+      "semi": true, // 是否语句末尾添加分号，默认为true。可选<true|false>
+      "singleQuote": true, // 使用单引号而非双引号，默认为false。可选<true|false>
+      "tabWidth": 2, // 设置工具每一个水平缩进的空格数，默认为2。可选<number>
+      "trailingComma": "es5", // 是否使用尾逗号，默认为es5。可选<none|es5|all>
+      "useTabs": false, // 是否使用tab进行缩进，默认为false，表示用空格进行缩减
+      "vueIndentScriptAndStyle": false // Vue文件中脚本和样式缩进，默认为false。可选<true|false>
+    },
+    "prettyhtml": {
+      "printWidth": 120,
+      "singleQuote": true,
+      "sortAttributes": true,
+      "wrapAttributes": true
+    }
+  },
+  "vetur.format.options.tabSize": 2,
+  "vetur.format.options.useTabs": false,
+  "volar.icon.preview": false,
   "vsicons.dontShowNewVersionMessage": true,
   "window.openFoldersInNewWindow": "on",
   "window.restoreWindows": "none",
