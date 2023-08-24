@@ -22,7 +22,7 @@ if command -v git &> /dev/null; then
   precmd_functions+=( precmd_vcs_info )
   prompt_node() {
     if which node &> /dev/null; then
-      echo "$GREEN\uf898 $(node -v)"
+      echo "$GREEN\ue718 $(node -v)"
     fi
   }
   prompt_git() { [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ] && echo "$(prompt_node)  $BLUE\ue0a0 ${vcs_info_msg_0_%% }$FINISH" }

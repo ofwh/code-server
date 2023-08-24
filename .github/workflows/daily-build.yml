@@ -1,4 +1,4 @@
-name: Build Trigger
+name: DailyBuild
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron: '0 16 * * *'
 
 jobs:
-  check:
+  auto-build:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger build latest
@@ -21,5 +21,5 @@ jobs:
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
-          retain_days: 3
-          keep_minimum_runs: 2
+          retain_days: 1
+          keep_minimum_runs: 1

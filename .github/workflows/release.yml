@@ -1,4 +1,4 @@
-name: Build Docker Images
+name: Release
 
 on:
   repository_dispatch:
@@ -7,6 +7,23 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+
+      - name: Download Nerd Fonts
+        run: |
+          mkdir -p /tmp/fonts
+          INSTALL_FONTS=(Hack JetBrainsMono)
+          for i in ${INSTALL_FONTS[@]}; do
+            echo "Downloading font ${i} ==> https://github.com/ryanoasis/nerd-fonts/releases/latest/download/${i}.zip"
+            wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/${i}.zip
+            echo "Unzipping font ${i}.zip"
+            unzip -q -o ${i}.zip -d /tmp/fonts
+            rm -rf ${i}.zip
+          done
+          rm -rf ./fonts
+          mkdir -p ./fonts
+          cp /tmp/fonts/*Mono-*.ttf ./fonts
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
@@ -23,6 +40,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
+          context: .
           build-args: NODE_VER=${{ github.event.client_payload.node }}
           platforms: linux/amd64,linux/arm64
           tags: ${{ github.event.client_payload.repo }}:${{ github.event.client_payload.tag }}

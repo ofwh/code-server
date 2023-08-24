@@ -4,7 +4,7 @@
 
 ```sh
 docker build -t luoweihua7/code-server:latest .
-``
+```
 
 也可以指定默认的Node版本
 

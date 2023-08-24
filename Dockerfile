@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install curl wget net-tools neovim unzip -y
 
 # Install nerd fonts
 RUN mkdir -p ./fonts
-COPY src/fonts ./fonts
+COPY fonts ./fonts
 RUN mkdir -p /usr/share/fonts/truetype
 RUN install -m644 ./fonts/*.ttf /usr/share/fonts/truetype/
 RUN rm -rf ./fonts
