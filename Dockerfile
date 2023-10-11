@@ -67,6 +67,7 @@ RUN code-server --install-extension esbenp.prettier-vscode
 RUN code-server --install-extension yoavbls.pretty-ts-errors
 RUN code-server --install-extension richie5um2.vscode-sort-json
 RUN code-server --install-extension bradlc.vscode-tailwindcss
+RUN code-server --install-extension donjayamanne.githistory
 RUN code-server --install-extension wayou.vscode-todo-highlight
 RUN code-server --install-extension Vue.vscode-typescript-vue-plugin
 RUN code-server --install-extension vscode-icons-team.vscode-icons
