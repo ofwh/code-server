@@ -248,6 +248,7 @@
   "vetur.format.options.useTabs": false,
   "volar.icon.preview": false,
   "vsicons.dontShowNewVersionMessage": true,
+  "window.menuBarVisibility": "classic",
   "window.openFoldersInNewWindow": "on",
   "window.restoreWindows": "none",
   "window.title": "${activeEditorLong}${separator}${rootName}",
@@ -269,6 +270,7 @@
   "workbench.editorAssociations": {},
   "workbench.enableExperiments": false,
   "workbench.iconTheme": "vscode-icons",
+  "workbench.layoutControl.enabled": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none"
 }
