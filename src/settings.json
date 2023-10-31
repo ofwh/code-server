@@ -23,7 +23,7 @@
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -37,8 +37,8 @@
   "[less]": {
     "editor.defaultFormatter": "michelemelluso.code-beautifier"
   },
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -89,10 +89,14 @@
   "editor.selectionHighlight": true,
   "editor.tabSize": 2,
   "editor.unicodeHighlight.includeStrings": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
   "editor.unicodeHighlight.nonBasicASCII": false,
   "editor.wordWrapColumn": 120,
   "eslint.codeActionsOnSave.mode": "problems",
   "eslint.quiet": true,
+  "explorer.autoRevealExclude": {
+    "**/node_modules": false
+  },
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
@@ -178,7 +182,7 @@
   "terminal.integrated.cursorStyle": "underline",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "terminal.integrated.fontFamily": "Hack Nerd Font Mono, JetBrainsMono Nerd Font Mono, Menlo, Monaco, Courier New, monospace",
+  "terminal.integrated.fontFamily": "Hack Nerd Font Mono, Menlo, Monaco, Courier New, monospace",
   "terminal.integrated.fontWeight": "600",
   "terminal.integrated.lineHeight": 1.2,
   "terminal.integrated.persistentSessionReviveProcess": "never",
@@ -209,15 +213,7 @@
   "typescript.validate.enable": false,
   "update.mode": "manual",
   "update.showReleaseNotes": false,
-  "vetur.completion.scaffoldSnippetSources": {
-    "user": "🗒️",
-    "vetur": "✌",
-    "workspace": "💼"
-  },
   "vetur.format.defaultFormatterOptions": {
-    "js-beautify-html": {
-      "wrap_attributes": "force-expand-multiline"
-    },
     "prettier": {
       "arrowParens": "always", // 箭头函数参数只有一个时是否需要有小括号，默认为always。可选<always|avoid>
       "bracketSpacing": true, // 对象大括号直接是否有空格，默认为true。可选<true|false>
@@ -244,11 +240,7 @@
       "wrapAttributes": true
     }
   },
-  "vetur.format.options.tabSize": 2,
-  "vetur.format.options.useTabs": false,
-  "volar.icon.preview": false,
   "vsicons.dontShowNewVersionMessage": true,
-  "window.menuBarVisibility": "classic",
   "window.openFoldersInNewWindow": "on",
   "window.restoreWindows": "none",
   "window.title": "${activeEditorLong}${separator}${rootName}",
@@ -269,8 +261,7 @@
   "workbench.editor.untitled.hint": "hidden",
   "workbench.editorAssociations": {},
   "workbench.enableExperiments": false,
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.layoutControl.enabled": false,
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none"
 }

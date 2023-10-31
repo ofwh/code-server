@@ -35,10 +35,9 @@ RUN apt-get install python2.7 python-is-python2 -y
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | \
     bash
 RUN /bin/zsh -c "source $HOME/.nvm/nvm.sh \
-    && nvm install 14 \
-    && nvm install 16 \
-    && nvm install 18 \
-    && nvm alias default ${NODE_VER}"
+    && nvm install ${NODE_VER} \
+    && nvm alias default ${NODE_VER} \
+    && npm install -g pnpm"
 
 # Fix permissions for code-server
 # RUN chown -R root:root ~/.local
@@ -53,7 +52,6 @@ RUN /bin/zsh -c "source $HOME/.nvm/nvm.sh \
 RUN code-server --install-extension formulahendry.auto-close-tag
 RUN code-server --install-extension formulahendry.auto-rename-tag
 RUN code-server --install-extension mgmcdermott.vscode-language-babel
-RUN code-server --install-extension michelemelluso.code-beautifier
 RUN code-server --install-extension aaron-bond.better-comments
 RUN code-server --install-extension formulahendry.code-runner
 RUN code-server --install-extension streetsidesoftware.code-spell-checker
@@ -68,10 +66,11 @@ RUN code-server --install-extension yoavbls.pretty-ts-errors
 RUN code-server --install-extension richie5um2.vscode-sort-json
 RUN code-server --install-extension bradlc.vscode-tailwindcss
 RUN code-server --install-extension donjayamanne.githistory
-RUN code-server --install-extension wayou.vscode-todo-highlight
 RUN code-server --install-extension Vue.vscode-typescript-vue-plugin
-RUN code-server --install-extension vscode-icons-team.vscode-icons
+RUN code-server --install-extension PKief.material-icon-theme
 RUN code-server --install-extension Vue.volar
+RUN code-server --install-extension redhat.vscode-yaml
+RUN code-server --install-extension ms-azuretools.vscode-docker
 
 # Install apt packages:
 # RUN sudo apt-get install -y ubuntu-make
