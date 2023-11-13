@@ -25,7 +25,13 @@ if command -v git &> /dev/null; then
       echo "$GREEN\ue718 $(node -v)"
     fi
   }
-  prompt_git() { [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ] && echo "$(prompt_node)  $BLUE\ue0a0 ${vcs_info_msg_0_%% }$FINISH" }
+  prompt_git() {
+    if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
+      echo "$(prompt_node)  $BLUE\ue0a0 ${vcs_info_msg_0_%% }$FINISH"
+    else
+      echo "$(prompt_node) $FINISH"
+    fi
+  }
   setopt prompt_subst
   # RPROMPT=\$vcs_info_msg_0_
   RPROMPT='$(prompt_git)'
