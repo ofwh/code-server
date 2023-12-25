@@ -27,7 +27,7 @@ RUN install -m644 ./fonts/*.ttf /usr/share/fonts/truetype/
 RUN rm -rf ./fonts
 
 # Install python2 for sass
-RUN apt-get install python2.7 python-is-python2 -y
+# RUN apt-get install python2.7 python-is-python2 -y
 
 # RUN curl https://rclone.org/install.sh | sudo bash
 
