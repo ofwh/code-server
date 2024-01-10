@@ -26,8 +26,11 @@ RUN mkdir -p /usr/share/fonts/truetype
 RUN install -m644 ./fonts/*.ttf /usr/share/fonts/truetype/
 RUN rm -rf ./fonts
 
-# Install python2 for sass
+# Alias python
+## Python2.7, Work for Debian 11
 # RUN apt-get install python2.7 python-is-python2 -y
+## Python3, Work for Debian 12
+RUN apt-get install python-is-python3 -y
 
 # RUN curl https://rclone.org/install.sh | sudo bash
 
