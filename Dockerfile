@@ -36,11 +36,11 @@ RUN apt-get install python-is-python3 -y
 
 # Install nvm and NodeJS
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | \
-    bash
+  bash
 RUN /bin/zsh -c "source $HOME/.nvm/nvm.sh \
-    && nvm install ${NODE_VER} \
-    && nvm alias default ${NODE_VER} \
-    && npm install -g pnpm"
+  && nvm install ${NODE_VER} \
+  && nvm alias default ${NODE_VER} \
+  && npm install -g pnpm"
 
 # Fix permissions for code-server
 # RUN chown -R root:root ~/.local
@@ -89,4 +89,5 @@ ENV PORT=8080
 # Use our custom entrypoint script first
 COPY src/entrypoint.sh /usr/bin/code-server-entrypoint.sh
 RUN chmod +x /usr/bin/code-server-entrypoint.sh
+
 ENTRYPOINT ["/usr/bin/code-server-entrypoint.sh"]
