@@ -1,23 +1,14 @@
 # Start from the code-server Debian base image
-FROM codercom/code-server:latest
+FROM codercom/code-server:latest as base
 
 USER root
 
-# Set default version
-ARG NODE_VER=18
-
-# Apply VS Code settings
-COPY src/settings.json /root/.local/share/code-server/User/settings.json
-
 # Use bash shell
 # ENV SHELL=/bin/bash
-
-# Use zsh shell
-COPY src/dotfiles /root/
 ENV SHELL=/bin/zsh
 
 # Install unzip + rclone (support for remote filesystem)
-RUN apt-get update && apt-get install curl wget net-tools neovim unzip -y
+RUN apt-get update && apt-get install curl wget net-tools neovim unzip python-is-python3 -y
 
 # Install nerd fonts
 RUN mkdir -p ./fonts
@@ -26,11 +17,15 @@ RUN mkdir -p /usr/share/fonts/truetype
 RUN install -m644 ./fonts/*.ttf /usr/share/fonts/truetype/
 RUN rm -rf ./fonts
 
-# Alias python
-## Python2.7, Work for Debian 11
-# RUN apt-get install python2.7 python-is-python2 -y
-## Python3, Work for Debian 12
-RUN apt-get install python-is-python3 -y
+FROM base as vscode
+
+# Set default version
+ARG NODE_VER=20
+
+# Apply VS Code settings
+COPY src/settings.json /root/.local/share/code-server/User/settings.json
+
+COPY src/dotfiles /root/
 
 # RUN curl https://rclone.org/install.sh | sudo bash
 
@@ -82,6 +77,8 @@ RUN code-server --install-extension ms-azuretools.vscode-docker
 # COPY deploy-container/myTool /home/coder/myTool
 
 # -----------
+
+FROM vscode as runner
 
 # Port
 ENV PORT=8080
