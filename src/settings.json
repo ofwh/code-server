@@ -17,7 +17,7 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": false
+    "editor.wordBasedSuggestions": "off"
   },
   "[dockercompose]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
@@ -35,7 +35,7 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[less]": {
-    "editor.defaultFormatter": "michelemelluso.code-beautifier"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
@@ -44,6 +44,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[vue]": {
@@ -68,14 +71,15 @@
     "leco",
     "fql"
   ],
-  "debug.console.fontFamily": "JetBrainsMono Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace, default",
+  "debug.console.fontFamily": "FiraMono Nerd Font, JetBrainsMono Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace, default",
   "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.useInlineViewWhenSpaceIsLimited": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {},
-  "editor.codeLensFontFamily": "JetBrainsMono Nerd Font Mono, Menlo, Monaco, Courier New, monospace",
+  "editor.codeLensFontFamily": "FiraMono Nerd Font, JetBrainsMono Nerd Font Mono, Menlo, Monaco, Courier New, monospace",
   "editor.detectIndentation": false,
   "editor.find.autoFindInSelection": "multiline",
-  "editor.fontFamily": "JetBrainsMono Nerd Font Mono, Menlo, Monaco, Courier New, monospace",
+  "editor.fontFamily": "FiraMono Nerd Font, JetBrainsMono Nerd Font Mono, Menlo, Monaco, Courier New, monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
   "editor.fontWeight": "normal",
@@ -111,6 +115,9 @@
   "git.autofetch": true,
   "git.ignoreLegacyWarning": true,
   "git.ignoreMissingGitWarning": true,
+  "github.copilot.advanced": {},
+  "github.copilot.chat.localeOverride": "zh-CN",
+  "github.copilot.chat.welcomeMessage": "never",
   "gitlens.advanced.messages": {
     "suppressGitVersionWarning": true
   },
@@ -129,6 +136,7 @@
   "gitlens.defaultDateShortFormat": "YY/MM/DD HH:mm:ss",
   "gitlens.defaultTimeFormat": "HH:mm:ss",
   "gitlens.hovers.avatars": false,
+  "gitlens.proxy": {},
   "gitlens.showWelcomeOnInstall": false,
   "gitlens.showWhatsNewAfterUpgrades": false,
   "gitlens.statusBar.enabled": false,
@@ -174,6 +182,7 @@
   "sortJSON.excludedFiles": [
     "package.json"
   ],
+  "svg.preview.mode": "svg",
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.allowMnemonics": true,
   "terminal.integrated.automationProfile.windows": {},
@@ -182,7 +191,7 @@
   "terminal.integrated.cursorStyle": "underline",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "terminal.integrated.fontFamily": "Hack Nerd Font Mono, Menlo, Monaco, Courier New, monospace",
+  "terminal.integrated.fontFamily": "FiraMono Nerd Font, Hack Nerd Font Mono, Menlo, Monaco, Courier New, monospace",
   "terminal.integrated.fontWeight": "600",
   "terminal.integrated.lineHeight": 1.2,
   "terminal.integrated.persistentSessionReviveProcess": "never",
@@ -210,6 +219,7 @@
   "terminal.integrated.shellIntegration.history": 500,
   "terminal.integrated.tabs.enabled": true,
   "typescript.reportStyleChecksAsWarnings": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.validate.enable": false,
   "update.mode": "manual",
   "update.showReleaseNotes": false,
@@ -240,7 +250,10 @@
       "wrapAttributes": true
     }
   },
-  "vsicons.dontShowNewVersionMessage": true,
+  "volar.format.initialIndent": {
+    "html": true
+  },
+  "vue.complete.casing.props": "kebab",
   "window.openFoldersInNewWindow": "on",
   "window.restoreWindows": "none",
   "window.title": "${activeEditorLong}${separator}${rootName}",
@@ -257,9 +270,11 @@
   "workbench.colorTheme": "One Dark Pro Darker",
   "workbench.commandPalette.history": 25,
   "workbench.editor.closeOnFileDelete": true,
+  "workbench.editor.empty.hint": "hidden",
   "workbench.editor.highlightModifiedTabs": true,
-  "workbench.editor.untitled.hint": "hidden",
-  "workbench.editorAssociations": {},
+  "workbench.editorAssociations": {
+    "*.plist": "default"
+  },
   "workbench.enableExperiments": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.settings.enableNaturalLanguageSearch": false,
