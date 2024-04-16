@@ -58,13 +58,11 @@ RUN code-server --install-extension mhutchie.git-graph
 RUN code-server --install-extension eamodio.gitlens
 RUN code-server --install-extension wix.vscode-import-cost
 RUN code-server --install-extension yzhang.markdown-all-in-one
-RUN code-server --install-extension zhuangtongfa.material-theme
 RUN code-server --install-extension esbenp.prettier-vscode
-RUN code-server --install-extension yoavbls.pretty-ts-errors
 RUN code-server --install-extension richie5um2.vscode-sort-json
 RUN code-server --install-extension bradlc.vscode-tailwindcss
 RUN code-server --install-extension donjayamanne.githistory
-RUN code-server --install-extension Vue.vscode-typescript-vue-plugin
+RUN code-server --install-extension zhuangtongfa.material-theme
 RUN code-server --install-extension PKief.material-icon-theme
 RUN code-server --install-extension Vue.volar
 RUN code-server --install-extension redhat.vscode-yaml
