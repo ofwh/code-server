@@ -46,3 +46,12 @@ jobs:
           tags: ${{ github.event.client_payload.repo }}:${{ github.event.client_payload.tag }}
           cache-from: type=registry,ref=${{ github.event.client_payload.repo }}:buildcache
           cache-to: type=registry,ref=${{ github.event.client_payload.repo }}:buildcache,mode=max
+      
+      - name: Update Changelog
+        run: |
+          echo "## [${{ github.event.client_payload.tag }}] - $(date +'%Y-%m-%d')" > CHANGELOG.md
+          echo "- ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/${{ github.event.client_payload.tag }}" >> CHANGELOG.md
+          echo "" >> CHANGELOG.md
+          git add CHANGELOG.md
+          git commit -m "Update changelog for release ${{ github.event.client_payload.tag }}"
+          git push

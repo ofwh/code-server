@@ -17,9 +17,13 @@ RUN install -m644 ./fonts/*.ttf /usr/share/fonts/truetype/ && rm -rf ./fonts
 
 FROM base as vscode
 
+# Set default version
+ARG NODE_VER=20
+
 # Apply VS Code settings
-COPY settings.json /root/.local/share/code-server/User/settings.json
-COPY dotfiles /root/
+COPY src/settings.json /root/.local/share/code-server/User/settings.json
+
+COPY src/dotfiles /root/
 
 # RUN curl https://rclone.org/install.sh | sudo bash
 
@@ -27,8 +31,8 @@ COPY dotfiles /root/
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | \
   bash
 RUN /bin/zsh -c "source $HOME/.nvm/nvm.sh \
-  && nvm install --lts \
-  && nvm alias default 'lts/*' \
+  && nvm install ${NODE_VER} \
+  && nvm alias default ${NODE_VER} \
   && npm install -g pnpm"
 
 # Fix permissions for code-server
@@ -76,7 +80,7 @@ FROM vscode as runner
 ENV PORT=8080
 
 # Use our custom entrypoint script first
-COPY entrypoint.sh /usr/bin/code-server-entrypoint.sh
+COPY src/entrypoint.sh /usr/bin/code-server-entrypoint.sh
 RUN chmod +x /usr/bin/code-server-entrypoint.sh
 
 ENTRYPOINT ["/usr/bin/code-server-entrypoint.sh"]
