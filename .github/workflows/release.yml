@@ -52,6 +52,8 @@ jobs:
           echo "## [${{ github.event.client_payload.tag }}] - $(date +'%Y-%m-%d')" > CHANGELOG.md
           echo "- ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/${{ github.event.client_payload.tag }}" >> CHANGELOG.md
           echo "" >> CHANGELOG.md
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@actions.github.com"
           git add CHANGELOG.md
-          git commit -m "Update changelog for release ${{ github.event.client_payload.tag }}"
+          git commit -m "【$(date +'%Y-%m-%d')】Update changelog for release ${{ github.event.client_payload.tag }}"
           git push
