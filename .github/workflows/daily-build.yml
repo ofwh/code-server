@@ -17,7 +17,7 @@ jobs:
         with:
           token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
           event-type: Build Latest
-          client-payload: '{ "node": 18, "tag": "latest", "repo": "${{ github.repository }}" }'
+          client-payload: '{ "node": 20, "tag": "latest", "repo": "${{ github.repository }}" }'
 
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
