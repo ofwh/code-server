@@ -1,3 +1,3 @@
-## [latest] - 2024-10-24
+## [latest] - 2024-10-25
 - https://github.com/luoweihua7/code-server/releases/tag/latest
 
