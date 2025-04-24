@@ -11,6 +11,7 @@ jobs:
 
       - name: Download Nerd Fonts
         run: |
+          echo "start_time=$(date +%s)" >> $GITHUB_ENV
           mkdir -p /tmp/fonts
           INSTALL_FONTS=(Hack JetBrainsMono)
           for i in ${INSTALL_FONTS[@]}; do
@@ -46,8 +47,22 @@ jobs:
           tags: ${{ github.event.client_payload.repo }}:${{ github.event.client_payload.tag }}
           cache-from: type=registry,ref=${{ github.event.client_payload.repo }}:buildcache
           cache-to: type=registry,ref=${{ github.event.client_payload.repo }}:buildcache,mode=max
-      
+
+      - name: Build time
+        run: |
+          start_time=$(echo ${{ env.start_time }})
+          end_time=$(date +%s)
+          duration=$((end_time - start_time))
+          echo "Build time: $((duration / 60)) minutes and $((duration % 60)) seconds"
+          # 通过构建时长来判断 Code Server 是否有更新
+          if [ $duration -gt 300 ]; then
+            echo "CODE_SERVER_UPDATED=true" >> $GITHUB_ENV
+          else
+            echo "CODE_SERVER_UPDATED=false" >> $GITHUB_ENV
+          fi
+
       - name: Update Changelog
+        if: env.CODE_SERVER_UPDATED == 'true'
         run: |
           echo "## [${{ github.event.client_payload.tag }}] - $(date +'%Y-%m-%d')" > CHANGELOG.md
           echo "- ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/${{ github.event.client_payload.tag }}" >> CHANGELOG.md
