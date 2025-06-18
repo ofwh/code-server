@@ -49,7 +49,7 @@ jobs:
           push: true
           context: .
           platforms: linux/amd64,linux/arm64
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:latest,${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:${{ env.DOCKER_TAG_VERSION }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:${{ env.DOCKER_TAG_VERSION }},${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:latest
           cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:buildcache,mode=max
 
@@ -69,11 +69,10 @@ jobs:
         if: env.CODE_SERVER_UPDATED == 'true'
         run: |
           echo "## Last Updated: $(date +'%Y-%m-%d')" > CHANGELOG.md
-          echo "- ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases" >> CHANGELOG.md
           echo "- https://hub.docker.com/r/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}/tags" >> CHANGELOG.md
           echo "" >> CHANGELOG.md
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@actions.github.com"
           git add CHANGELOG.md
-          git commit --allow-empty -m "【$(date +'%Y-%m-%d')】Update changelog"
+          git commit --allow-empty -m "build:【$(date +'%Y-%m-%d')】Update changelog"
           git push
