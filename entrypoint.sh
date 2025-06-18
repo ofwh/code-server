@@ -26,6 +26,38 @@ fi
 
 # Set git safe directory
 /usr/bin/git config --global --add safe.directory "*"
+/usr/bin/git config --global pull.rebase true
+
+# Install extensions
+extensions="\
+  formulahendry.auto-close-tag \
+  formulahendry.auto-rename-tag \
+  mgmcdermott.vscode-language-babel \
+  aaron-bond.better-comments \
+  formulahendry.code-runner \
+  streetsidesoftware.code-spell-checker \
+  dbaeumer.vscode-eslint \
+  eamodio.gitlens \
+  mhutchie.git-graph \
+  donjayamanne.githistory \
+  wix.vscode-import-cost \
+  yzhang.markdown-all-in-one \
+  esbenp.prettier-vscode \
+  richie5um2.vscode-sort-json \
+  bradlc.vscode-tailwindcss \
+  zhuangtongfa.material-theme \
+  PKief.material-icon-theme \
+  Vue.volar \
+  redhat.vscode-yaml \
+  ms-azuretools.vscode-containers \
+  usernamehw.errorlens \
+  Prisma.prisma \
+  yy0931.vscode-sqlite3-editor \
+"
+
+for ext in $extensions; do
+  [ -n "$ext" ] && /usr/bin/code-server --install-extension "$ext"
+done
 
 # Start server
-exec dumb-init /usr/bin/code-server "$@" --disable-telemetry
+exec dumb-init /usr/bin/code-server "$@"

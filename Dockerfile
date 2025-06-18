@@ -1,5 +1,5 @@
 # Start from the code-server Debian base image
-FROM codercom/code-server:latest as base
+FROM codercom/code-server:latest AS base
 
 USER root
 
@@ -15,7 +15,7 @@ RUN mkdir -p ./fonts && mkdir -p /usr/share/fonts/truetype
 COPY fonts ./fonts
 RUN install -m644 ./fonts/*.ttf /usr/share/fonts/truetype/ && rm -rf ./fonts
 
-FROM base as vscode
+FROM base AS vscode
 
 # Apply VS Code settings
 COPY settings.json /root/.local/share/code-server/User/settings.json
@@ -41,27 +41,6 @@ RUN /bin/zsh -c "source $HOME/.nvm/nvm.sh \
 # Note: we use a different marketplace than VS Code. See https://github.com/cdr/code-server/blob/main/docs/FAQ.md#differences-compared-to-vs-code
 # RUN code-server --install-extension esbenp.prettier-vscode
 
-RUN code-server --install-extension formulahendry.auto-close-tag \
-  && code-server --install-extension formulahendry.auto-rename-tag \
-  && code-server --install-extension mgmcdermott.vscode-language-babel \
-  && code-server --install-extension aaron-bond.better-comments \
-  && code-server --install-extension formulahendry.code-runner \
-  && code-server --install-extension streetsidesoftware.code-spell-checker \
-  && code-server --install-extension dbaeumer.vscode-eslint \
-  && code-server --install-extension mhutchie.git-graph \
-  && code-server --install-extension eamodio.gitlens \
-  && code-server --install-extension wix.vscode-import-cost \
-  && code-server --install-extension yzhang.markdown-all-in-one \
-  && code-server --install-extension esbenp.prettier-vscode \
-  && code-server --install-extension richie5um2.vscode-sort-json \
-  && code-server --install-extension bradlc.vscode-tailwindcss \
-  && code-server --install-extension donjayamanne.githistory \
-  && code-server --install-extension zhuangtongfa.material-theme \
-  && code-server --install-extension PKief.material-icon-theme \
-  && code-server --install-extension Vue.volar \
-  && code-server --install-extension redhat.vscode-yaml \
-  && code-server --install-extension ms-azuretools.vscode-docker
-
 # Install apt packages:
 # RUN sudo apt-get install -y ubuntu-make
 
@@ -70,7 +49,7 @@ RUN code-server --install-extension formulahendry.auto-close-tag \
 
 # -----------
 
-FROM vscode as runner
+FROM vscode AS runner
 
 # Port
 ENV PORT=8080

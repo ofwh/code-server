@@ -9,21 +9,27 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Set up environment variables
+        run: |
+          echo "REPOSITORY_NAME=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f2)" >> $GITHUB_ENV
+          echo "start_time=$(date +%s)" >> $GITHUB_ENV
+          echo "DOCKER_TAG_VERSION=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
+
       - name: Download Nerd Fonts
         run: |
-          echo "start_time=$(date +%s)" >> $GITHUB_ENV
           mkdir -p /tmp/fonts
-          INSTALL_FONTS=(Hack JetBrainsMono)
+          INSTALL_FONTS=(FiraCode Hack JetBrainsMono)
           for i in ${INSTALL_FONTS[@]}; do
-            echo "Downloading font ${i} ==> https://github.com/ryanoasis/nerd-fonts/releases/latest/download/${i}.zip"
-            wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/${i}.zip
-            echo "Unzipping font ${i}.zip"
-            unzip -q -o ${i}.zip -d /tmp/fonts
-            rm -rf ${i}.zip
+            echo "Downloading font ${i} ==> https://github.com/ryanoasis/nerd-fonts/releases/latest/download/${i}.tar.xz"
+            wget -q https://github.com/ryanoasis/nerd-fonts/releases/latest/download/${i}.tar.xz
+            echo "Extracting font ${i}.tar.xz"
+            tar -xJf ${i}.tar.xz -C /tmp/fonts
+            rm -rf /tmp/fonts/*Propo*.ttf
+            rm -rf ${i}.tar.xz
           done
           rm -rf ./fonts
           mkdir -p ./fonts
-          cp /tmp/fonts/*Mono-*.ttf ./fonts
+          cp /tmp/fonts/*-*.ttf ./fonts
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -38,15 +44,14 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v6
         with:
           push: true
           context: .
-          build-args: NODE_VER=${{ github.event.client_payload.node }}
           platforms: linux/amd64,linux/arm64
-          tags: ${{ github.event.client_payload.repo }}:${{ github.event.client_payload.tag }}
-          cache-from: type=registry,ref=${{ github.event.client_payload.repo }}:buildcache
-          cache-to: type=registry,ref=${{ github.event.client_payload.repo }}:buildcache,mode=max
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:latest,${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:${{ env.DOCKER_TAG_VERSION }}
+          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:buildcache,mode=max
 
       - name: Build time
         run: |
@@ -54,8 +59,7 @@ jobs:
           end_time=$(date +%s)
           duration=$((end_time - start_time))
           echo "Build time: $((duration / 60)) minutes and $((duration % 60)) seconds"
-          # 通过构建时长来判断 Code Server 是否有更新
-          if [ $duration -gt 300 ]; then
+          if [ $duration -gt 60 ]; then
             echo "CODE_SERVER_UPDATED=true" >> $GITHUB_ENV
           else
             echo "CODE_SERVER_UPDATED=false" >> $GITHUB_ENV
@@ -64,11 +68,12 @@ jobs:
       - name: Update Changelog
         if: env.CODE_SERVER_UPDATED == 'true'
         run: |
-          echo "## [${{ github.event.client_payload.tag }}] - $(date +'%Y-%m-%d')" > CHANGELOG.md
-          echo "- ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/tag/${{ github.event.client_payload.tag }}" >> CHANGELOG.md
+          echo "## Last Updated: $(date +'%Y-%m-%d')" > CHANGELOG.md
+          echo "- ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases" >> CHANGELOG.md
+          echo "- https://hub.docker.com/r/${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}/tags" >> CHANGELOG.md
           echo "" >> CHANGELOG.md
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@actions.github.com"
           git add CHANGELOG.md
-          git commit --allow-empty -m "【$(date +'%Y-%m-%d')】Update changelog for release ${{ github.event.client_payload.tag }}"
+          git commit --allow-empty -m "【$(date +'%Y-%m-%d')】Update changelog"
           git push
