@@ -1,3 +1,3 @@
-## [latest] - 2025-05-16
-- https://github.com/luoweihua7/code-server/releases/tag/latest
+## Last Updated: 2025-06-21
+- https://hub.docker.com/r/luoweihua7/code-server/tags
 
