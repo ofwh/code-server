@@ -30,29 +30,25 @@ fi
 
 # Install extensions
 extensions="\
-  formulahendry.auto-close-tag \
-  formulahendry.auto-rename-tag \
-  mgmcdermott.vscode-language-babel \
-  aaron-bond.better-comments \
-  formulahendry.code-runner \
-  streetsidesoftware.code-spell-checker \
-  dbaeumer.vscode-eslint \
-  eamodio.gitlens \
-  mhutchie.git-graph \
-  donjayamanne.githistory \
-  wix.vscode-import-cost \
-  yzhang.markdown-all-in-one \
-  esbenp.prettier-vscode \
-  richie5um2.vscode-sort-json \
-  bradlc.vscode-tailwindcss \
-  zhuangtongfa.material-theme \
-  PKief.material-icon-theme \
-  Vue.volar \
-  redhat.vscode-yaml \
-  ms-azuretools.vscode-containers \
-  usernamehw.errorlens \
-  Prisma.prisma \
-  yy0931.vscode-sqlite3-editor \
+    dbaeumer.vscode-eslint \
+    donjayamanne.githistory \
+    eamodio.gitlens \
+    esbenp.prettier-vscode \
+    jock.svg \
+    kisstkondoros.vscode-gutter-preview \
+    mhutchie.git-graph \
+    mikestead.dotenv \
+    ms-azuretools.vscode-containers \
+    pkief.material-icon-theme \
+    richie5um2.vscode-sort-json \
+    streetsidesoftware.code-spell-checker \
+    tamasfe.even-better-toml \
+    vstirbu.vscode-mermaid-preview \
+    vue.volar \
+    wayou.vscode-todo-highlight \
+    wix.vscode-import-cost \
+    yzhang.markdown-all-in-one \
+    zhuangtongfa.material-theme \
 "
 
 for ext in $extensions; do
