@@ -1,3 +1,3 @@
-## [latest] - 2026-07-27
+## [latest] - 2026-07-28
 - https://github.com/ofwh/code-server/releases/tag/latest
 
